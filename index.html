@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" ng-app="snack">
+<head>
+    <title>Fast food snacks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <script	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.js"></script>
+    <script src="build/app.js"></script>
+</head>
+<body ng-controller="HomeController">
+<div id="main">
+    <select name="foodSelect" ng-model="fastFood" ng-change=""
+        data ng-options="food as food.name for food in foodToOrder" value="{{ food.id }}">{{ food.name }}</option>
+        <option value="">Choose a food to order</option>
+    </select>
+
+    <button ng-click="dataFromForm(fastFood);countItems()">Item To Cart</button>
+        <table>
+        <tr ng-if="item.qty > 0" ng-repeat="item in results">
+            <td>{{ item.name }}</td>
+            <td>{{ item.qty }}</td>
+            <td><button name="increase" ng-click="increase(item.id)">Increase</button></td>
+            <td><button name="decrease" ng-click="decrease(item.id)">Decrease</button></td>
+        </tr>
+            <tr>
+                <td></td>
+                <td><button ng-click="orderToCart()">Order</button></td>
+                <td><button ng-click="cancelOrder()">Cancel</button></td>
+                <td ng-if="timeToWait != null && timeToWait > 0"> Yo have to wait {{ timeToWait | time: "mm" }}</td>
+            </tr>
+            </table>
+
+<div ng-view></div>
+    </div>
+</body>
+</html>
