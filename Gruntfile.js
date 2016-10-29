@@ -41,14 +41,14 @@ module.exports = function(grunt) {
         },
         concat: {
             dist:{
-                src: ['js/staged.js','js/controllers/*.js', 'js/services/*.js', 'js/filters/*.js'],
+                src: ['js/staged.js','js/controllers/*.js', 'js/services/*.js', 'js/models/*.js','js/filters/*.js'],
                 dest: 'build/app.js',
             },
         },
 
         watch: {
             scripts:{
-                files: 'js/**/*.js',
+                files: ['js/**/*.js', 'partials/**/*.html', 'css/**/*.css', 'index.html'],
                 tasks: ['jshint', 'uglify','clean', 'concat'],
                 options: {
                     livereload: true

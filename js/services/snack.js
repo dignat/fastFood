@@ -13,8 +13,8 @@ snack.service('SnackService', function(){
 
 
     this.fastFood = [
-         {id: 1, name:'tunaMayo', type: 'sandwich',qty: 0},
-         {id: 2, name:'hamAndCheese',type: 'sandwich', qty: 0},
+         {id: 1, name:'tunaMayo', type: 'sandwich',qty: 1},
+         {id: 2, name:'hamAndCheese',type: 'sandwich', qty: 1},
 
     ]
 

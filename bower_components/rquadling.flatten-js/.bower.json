@@ -1,0 +1,34 @@
+{
+  "name": "rquadling.flatten-js",
+  "version": "0.0.1",
+  "homepage": "http://stackoverflow.com/questions/19098797/fastest-way-to-flatten-un-flatten-nested-json-objects",
+  "authors": [
+    "Various"
+  ],
+  "description": "Javascript flatten/unflatten",
+  "main": "src/flatten.js",
+  "keywords": [
+    "object",
+    "array",
+    "flatten"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "spec",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "f290b44d3f9dba0aeb7934741be84848fa482e1f"
+  },
+  "_source": "git://github.com/rquadling/flatten-js.git",
+  "_target": "~0.0.1",
+  "_originalSource": "rquadling/flatten-js"
+}

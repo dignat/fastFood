@@ -1,3 +1,3 @@
-var snack = angular.module('snack', ['ngRoute']);
+var snack = angular.module('snack', ['ngRoute', 'ui.bootstrap', 'angular.filter']);
 
 
