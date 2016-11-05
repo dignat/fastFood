@@ -8,6 +8,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-build');
 
 // Project configuration.
     grunt.initConfig({
@@ -61,7 +62,7 @@ module.exports = function(grunt) {
 
 // Define the default task
     //grunt.registerTask('default', ['uglify', 'jshint']);
-    //grunt.registerTask('build', ['clean', 'copy']);
+    grunt.registerTask('build', ['clean', 'copy', 'concat']);
     grunt.event.on('watch', function(action,filepath, target) {
         grunt.log.writeln(target + ':' + filepath + ' has ' +action);
     });
