@@ -103,13 +103,24 @@ snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderIte
                 $scope.timeToWait += (itemsInCart.qty * (snack.timeToPrepare.jackedPotato.microwave + snack.timeToPrepare.jackedPotato.topping +  snack.timeToServe.serveToCustomer))
             }
         });
-        $scope.schedule.push({
-            prepareTimeSandwich: $scope.timeToPrepare.sandwich,
-            serveTimeSandwich: $scope.timeToServe.serveToCustomer,
-            qty: qty,
-            sandwich: sandwich,
-            jacked: jacked
-        });
+        for (var i = 0; i < qty ; i++) {
+            var prepare = 0;
+            var serve = 0;
+
+            prepare += i *  ($scope.timeToPrepare.sandwich + $scope.timeToServe.serveToCustomer);
+            serve +=  $scope.timeToServe.serveToCustomer + prepare + 30;
+
+            $scope.schedule.push({
+                sandwich: sandwich,
+                jacket: jacket,
+                index: i ,
+                prepare: prepare,
+                serve: serve,
+                qty: qty,
+                type: type
+            });
+
+        }
         $scope.count++;
         $scope.order[$scope.count] = {'cart':$scope.cart, 'items': $scope.items};
         $scope.put('order', $scope.order);

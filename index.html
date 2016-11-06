@@ -13,14 +13,6 @@
 </head>
 <body ng-controller="HomeController">
 <div id="main">
-    <!--<select class="form-control" name="foodSelect" ng-model="fastFood" ng-change=""
-        data ng-options="food as food.name for food in foodToOrder" value="{{ food.id }}">{{ food.name }}</option>
-        <option value="">Choose a food to order</option>
-    </select>
-
-
-
-    <button class="btn btn-primary" ng-click="dataFromForm(fastFood);countItems()">Item To Cart</button>-->
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
@@ -49,8 +41,11 @@
                 <td><button class="btn btn-danger"  ng-click="cancelOrder()">Cancel</button></td>
                 <td ng-if="timeToWait != null && timeToWait > 0"> Yo have to wait {{ timeToWait | time: "mm" }}</td>
             </tr>
-            <tr ng-repeat="item in schedule">
-                <td ng-if="item.sandwich = 'sandwich'"><li ng-repeat="i in range(1, item.qty)">{{ i }}: {{ i *  item.prepareTimeSandwich}}</li></td>
+            <tr ng-repeat="item in schedule  track by $index" ng-if="item.sandwich = 'sandwich'" >
+                <td>
+                    <li>{{ $index + 1 }} make{{ (item.prepare) | time: "mm" }}</li>
+                    <li>{{ $index + 1 }}serve{{ item.serve | time: "mm" }}</li>
+                </td>
             </tr>
             </table>
 
