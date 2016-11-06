@@ -1,6 +1,6 @@
-snack.factory('OrderItems', function() {
+snack.factory('OrderItem', function() {
 
-    function OrderItems() {
+    function OrderItem() {
         this.id = null;
         this.name = '';
         this.qty = 0;
@@ -8,16 +8,16 @@ snack.factory('OrderItems', function() {
     }
 
     OrderItems.prototype = {
-        getOrderItemId: function getOrderItemId() {
+        getId: function getId() {
             return this.id;
         },
-        getOrderItemName: function getOrderItemName() {
+        getName: function getName() {
             return this.name;
         },
-        getOrderItemQty: function getOrderItemQty() {
+        getQty: function getQty() {
             return this.qty;
         },
-        getOrderItemType: function getOrderItemType() {
+        getType: function getType() {
             return this.type;
         }
     }

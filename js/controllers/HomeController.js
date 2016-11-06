@@ -1,4 +1,4 @@
-snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderItems', '$cacheFactory',function($scope, snack, Order, OrderItems, $cacheFactory) {
+snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderItem', '$cacheFactory', function ($scope, snack, Order, OrderItem, $cacheFactory) {
 
     $scope.foodToOrder = snack.fastFood;
     $scope.order = {};
@@ -7,39 +7,14 @@ snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderIte
     $scope.schedule = [];
     $scope.cache = $cacheFactory('cacheID');
     $scope.keys = [];
-    $scope.put = function(key, value) {
+    $scope.put = function (key, value) {
         $scope.cache.put(key, value);
         $scope.keys.push(key);
     };
     $scope.count = 0;
-
-
-    $scope.dataFromForm = function(item) {
-        if (item != null) { console.log(item);
-            item.qty = 1;
-            $scope.order[item.id] = {id: item.id, name: item.name, type: item.type, qty: item.qty};
-            item.qty++;
-        }else {
-            item.qty = 0;
-        }
-    };
-
-    /*$scope.countItems = function countItems() {
-        $scope.results = {};
-        var order = $scope.order;
-        $scope.items = {};
-        angular.forEach(order, function(item) {
-            //if you want to count duplicate items this is the best
-               // items[item.name] = (items[item.name] || 0) +1;
-            $scope.items[item.id] = ({id:item.id,name:item.name,type:item.type,qty:item.qty});
-        });
-
-        $scope.results = $scope.items;
-
-    };*/
-
+    
     $scope.addItems = function addItems(itemID) {
-        angular.forEach($scope.foodToOrder, function(orderItems){
+        angular.forEach($scope.foodToOrder, function (orderItems) {
             if (orderItems.id == itemID) {
                 $scope.cart[orderItems.id] = {
                     id: orderItems.id,
@@ -65,19 +40,19 @@ snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderIte
         });
     };
 
-        $scope.decrease = function decrease(itemID) {
-            angular.forEach($scope.cart, function(item) {
-                if (item.id == itemID) {
-                    if (item.qty > 0) {
-                        item.qty--;
-                    }
-                    if (item.qty == 0) {
-                        $scope.order[item.id] = {};
-                        $scope.items[item.id] = {};
-                    }
+    $scope.decrease = function decrease(itemID) {
+        angular.forEach($scope.cart, function (item) {
+            if (item.id == itemID) {
+                if (item.qty > 0) {
+                    item.qty--;
                 }
-            });
-        };
+                if (item.qty == 0) {
+                    $scope.order[item.id] = {};
+                    $scope.items[item.id] = {};
+                }
+            }
+        });
+    };
 
     $scope.orderToCart = function orderToCart() {
         $scope.timeToPrepare = snack.timeToPrepare;
@@ -88,7 +63,7 @@ snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderIte
         var sandwich = '';
         var jacked = '';
 
-        angular.forEach($scope.cart, function(itemsInCart) {
+        angular.forEach($scope.cart, function (itemsInCart) {
             if (itemsInCart.type == 'sandwich') {
                 qty += itemsInCart.qty;
                 sandwich = itemsInCart.type;
@@ -96,20 +71,20 @@ snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderIte
             } else if (itemsInCart.type == 'jackedPotato') {
                 jacked = itemsInCart.type;
                 qty = itemsInCart.qty;
-                $scope.timeToWait += (itemsInCart.qty * (snack.timeToPrepare.jackedPotato.microwave + snack.timeToPrepare.jackedPotato.topping +  snack.timeToServe.serveToCustomer))
+                $scope.timeToWait += (itemsInCart.qty * (snack.timeToPrepare.jackedPotato.microwave + snack.timeToPrepare.jackedPotato.topping + snack.timeToServe.serveToCustomer))
             }
         });
-        for (var i = 0; i < qty ; i++) {
+        for (var i = 0; i < qty; i++) {
             var prepare = 0;
             var serve = 0;
 
-            prepare += i *  ($scope.timeToPrepare.sandwich + $scope.timeToServe.serveToCustomer);
-            serve +=  $scope.timeToServe.serveToCustomer + prepare + 30;
+            prepare += i * ($scope.timeToPrepare.sandwich + $scope.timeToServe.serveToCustomer);
+            serve += $scope.timeToServe.serveToCustomer + prepare + 30;
 
             $scope.schedule.push({
                 sandwich: sandwich,
                 jacket: jacket,
-                index: i ,
+                index: i,
                 prepare: prepare,
                 serve: serve,
                 qty: qty,
@@ -118,9 +93,8 @@ snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderIte
 
         }
         $scope.count++;
-        $scope.order[$scope.count] = {'cart':$scope.cart, 'items': $scope.items};
+        $scope.order[$scope.count] = {'cart': $scope.cart, 'items': $scope.items};
         $scope.put('order', $scope.order);
-console.log($scope.schedule);
         $scope.cart = {};
     };
 
@@ -132,12 +106,12 @@ console.log($scope.schedule);
         $scope.schedule = [];
     };
 
-    $scope.range = function(min, max, step) {
+    $scope.range = function (min, max, step) {
         step = step || 1;
         var input = [];
-            for (var i = min; i <= max; i += step) {
-                input.push(i);
-            }
+        for (var i = min; i <= max; i += step) {
+            input.push(i);
+        }
         return input;
     };
 

@@ -9,7 +9,7 @@ snack.factory('Order', function(){
 
     Order.prototype = {
 
-        getOrderId: function getOrderId() {
+        getId: function getId() {
             return this.id;
         },
         getOrderItems: function getOrderItems(items) {
