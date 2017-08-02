@@ -2,7 +2,7 @@ var snack = angular.module('snack', ['ngRoute', 'ui.bootstrap', 'angular.filter'
 
 
 
-snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderItem', '$cacheFactory', function ($scope, snack, Order, OrderItem, $cacheFactory) {
+snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderItems', '$cacheFactory', function ($scope, snack, Order, OrderItem, $cacheFactory) {
 
     $scope.foodToOrder = snack.fastFood;
     $scope.order = {};
@@ -72,10 +72,10 @@ snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderIte
                 qty += itemsInCart.qty;
                 sandwich = itemsInCart.type;
                 $scope.timeToWait += (itemsInCart.qty * (snack.timeToPrepare.sandwich + snack.timeToServe.serveToCustomer)) / 60;
-            } else if (itemsInCart.type == 'jackedPotato') {
+            } else if (itemsInCart.type == 'jacked') {
                 jacked = itemsInCart.type;
                 qty = itemsInCart.qty;
-                $scope.timeToWait += (itemsInCart.qty * (snack.timeToPrepare.jackedPotato.microwave + snack.timeToPrepare.jackedPotato.topping + snack.timeToServe.serveToCustomer))
+                $scope.timeToWait += (itemsInCart.qty * (snack.timeToPrepare.jacket.microwave + snack.timeToPrepare.jacket.topping + snack.timeToServe.serveToCustomer))
             }
         });
         for (var i = 0; i < qty; i++) {
@@ -87,12 +87,12 @@ snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderIte
 
             $scope.schedule.push({
                 sandwich: sandwich,
-                jacket: jacket,
+                jacket: jacked,
                 index: i,
                 prepare: prepare,
                 serve: serve,
                 qty: qty,
-                type: type
+               // type: type
             });
 
         }
@@ -125,7 +125,7 @@ snack.service('SnackService', function(){
 
         this.timeToPrepare = {
             sandwich: 60,
-            jackedPotato: {
+            jacket: {
                 microwave: 170,
                 topping: 30
             }
@@ -163,9 +163,9 @@ snack.factory('Order', function(){
 
     return new Order();
 });
-snack.factory('OrderItem', function() {
+snack.factory('OrderItems', function() {
 
-    function OrderItem() {
+    function OrderItems() {
         this.id = null;
         this.name = '';
         this.qty = 0;

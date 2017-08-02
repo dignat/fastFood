@@ -1,6 +1,6 @@
 //Code example 01-minify
 module.exports = function(grunt) {
-    require('time-grunt')(grunt);
+   // require('time-grunt')(grunt);
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');

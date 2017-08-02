@@ -1,6 +1,6 @@
-snack.factory('OrderItem', function() {
+snack.factory('OrderItems', function() {
 
-    function OrderItem() {
+    function OrderItems() {
         this.id = null;
         this.name = '';
         this.qty = 0;

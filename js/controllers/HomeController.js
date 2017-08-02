@@ -1,4 +1,4 @@
-snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderItem', '$cacheFactory', function ($scope, snack, Order, OrderItem, $cacheFactory) {
+snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderItems', '$cacheFactory', function ($scope, snack, Order, OrderItem, $cacheFactory) {
 
     $scope.foodToOrder = snack.fastFood;
     $scope.order = {};
@@ -68,10 +68,10 @@ snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderIte
                 qty += itemsInCart.qty;
                 sandwich = itemsInCart.type;
                 $scope.timeToWait += (itemsInCart.qty * (snack.timeToPrepare.sandwich + snack.timeToServe.serveToCustomer)) / 60;
-            } else if (itemsInCart.type == 'jackedPotato') {
+            } else if (itemsInCart.type == 'jacked') {
                 jacked = itemsInCart.type;
                 qty = itemsInCart.qty;
-                $scope.timeToWait += (itemsInCart.qty * (snack.timeToPrepare.jackedPotato.microwave + snack.timeToPrepare.jackedPotato.topping + snack.timeToServe.serveToCustomer))
+                $scope.timeToWait += (itemsInCart.qty * (snack.timeToPrepare.jacket.microwave + snack.timeToPrepare.jacket.topping + snack.timeToServe.serveToCustomer))
             }
         });
         for (var i = 0; i < qty; i++) {
@@ -83,12 +83,12 @@ snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderIte
 
             $scope.schedule.push({
                 sandwich: sandwich,
-                jacket: jacket,
+                jacket: jacked,
                 index: i,
                 prepare: prepare,
                 serve: serve,
                 qty: qty,
-                type: type
+               // type: type
             });
 
         }

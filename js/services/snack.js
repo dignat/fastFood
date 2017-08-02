@@ -2,7 +2,7 @@ snack.service('SnackService', function(){
 
         this.timeToPrepare = {
             sandwich: 60,
-            jackedPotato: {
+            jacket: {
                 microwave: 170,
                 topping: 30
             }
