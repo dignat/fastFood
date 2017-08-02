@@ -2,7 +2,7 @@ var snack = angular.module('snack', ['ngRoute', 'ui.bootstrap', 'angular.filter'
 
 
 
-snack.controller('HomeController', ['$scope', 'SnackService', 'Order', 'OrderItems', '$cacheFactory', function ($scope, snack, Order, OrderItem, $cacheFactory) {
+snack.controller('OrderController', ['$scope', 'SnackService', 'Order', 'OrderItems', '$cacheFactory', function ($scope, snack, Order, OrderItem, $cacheFactory) {
 
     $scope.foodToOrder = snack.fastFood;
     $scope.order = {};
