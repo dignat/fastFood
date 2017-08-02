@@ -1,0 +1,37 @@
+{
+  "name": "angular-repeat-n",
+  "version": "0.1.4",
+  "homepage": "https://github.com/connorbode/angular-repeat-n",
+  "authors": [
+    "Connor Bode <connor.bode@gmail.com>"
+  ],
+  "description": "Angular directive used to repeat a DOM element n times.",
+  "main": "dist/angular-repeat-n.js",
+  "keywords": [
+    "angular",
+    "repeat"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "example",
+    "src",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.21",
+    "angular-mocks": "~1.2.21"
+  },
+  "_release": "0.1.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.4",
+    "commit": "05906406e9433f57f8b86e547a0440f49337d856"
+  },
+  "_source": "git://github.com/coatesap/angular-repeat-n.git",
+  "_target": "v0.1.4",
+  "_originalSource": "coatesap/angular-repeat-n"
+}

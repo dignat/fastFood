@@ -1,0 +1,25 @@
+{
+  "name": "ini-js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/antriver/Ini-js",
+  "authors": [
+    "Iván -DrSlump- Montes <drslump@pollinimini.net>",
+    "Anthony Kuske <anthonykuske@tmd.solutions>"
+  ],
+  "description": "Parses ini files",
+  "main": "ini-js.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "ini"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

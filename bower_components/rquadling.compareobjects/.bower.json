@@ -1,0 +1,34 @@
+{
+  "name": "rquadling.compareobjects",
+  "version": "0.0.1",
+  "homepage": "https://stamat.wordpress.com/2013/06/22/javascript-object-comparison/",
+  "authors": [
+    "Nikola Stamatovic"
+  ],
+  "description": "Javascript Object Comparison",
+  "main": "src/compareObjects.js",
+  "keywords": [
+    "object",
+    "comparison",
+    "javascript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "spec",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "862132a18a092b53e80c6d4316e3f5e4f2f0f8bc"
+  },
+  "_source": "https://github.com/RQuadling/compareObjects.git",
+  "_target": "~0.0.1",
+  "_originalSource": "rquadling.compareobjects"
+}

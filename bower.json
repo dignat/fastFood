@@ -1,0 +1,60 @@
+{
+  "name": "snack-snack",
+  "version": "0.1",
+  "dependencies": {
+    "angular": "~1.2.28",
+    "angular-bindonce": "~0.3.3",
+    "angular-bootstrap": "~0.9.0",
+    "angular-cache": "~2.4.1",
+    "angular-debounce": "~1.1.0",
+    "angular-md5": "~0.1.7",
+    "angular-repeat-n": "coatesap/angular-repeat-n#v0.1.4",
+    "angular-resource": "~1.2.28",
+    "angular-route": "~1.2.28",
+    "angular-sanitize": "~1.2.28",
+    "angular-scroll": "~1",
+    "angular-ui-notification": "~0.1",
+    "bootstrap": "^3.3.7",
+    "html2canvas": "~0.4",
+    "ini-js": "antriver/ini-js",
+    "jquery": "^3.1.0",
+    "jquery.maskedinput": "~1.4.0",
+    "lz-string": "~1.4.0",
+    "moment": "~2",
+    "rquadling.compareobjects": "~0.0.1",
+    "rquadling.flatten-js": "rquadling/flatten-js#~0.0.1",
+    "rquadling.star-web-print": "~1"
+  },
+  "install": {
+    "path": {
+      "html": "snack-snack/lib/Bowered/html",
+      "js": "snack-snack/lib/Bowered/js",
+      "less": "snack-snack/lib/Bowered/less",
+      "woff": "snack-snack/lib/Bowered/fonts",
+      "woff2": "snack-snack/lib/Bowered/fonts"
+    },
+    "sources": {
+      "angular-cache": "bower_components/angular-cache/dist/angular-cache.js",
+      "angular-ui-notification": "bower_components/angular-ui-notification/src/angular-ui-notification.*",
+      "bootstrap": [
+        "bower_components/bootstrap/fonts/*.woff*",
+        "bower_components/bootstrap/less/*.less"
+      ],
+      "lz-string": "bower_components/lz-string/libs/lz-string.js"
+    }
+  },
+  "authors": [
+    "dignat <dignat@yahoo.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

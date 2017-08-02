@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="snack">
+<head>
+    <title>Fast food snacks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <script	src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-filter/dist/angular-filter.min.js"></script>
+    <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <script src="build/app.js"></script>
+</head>
+<body ng-controller="HomeController">
+<div id="main">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a href="#" ng-click="isCollapsed = !isCollapsed">
+                    Choose an item from the menu
+                </a>
+            </h4>
+        </div>
+        <div collapse="isCollapsed">
+            <div class="panel-body" ng-repeat="food in foodToOrder">
+                <button type="button" ng-click="addItems(food.id)">{{ food.name }}</button>
+            </div>
+        </div>
+    </div>
+        <table>
+        <tr ng-if="item.qty > 0" ng-repeat="item in cart">
+            <td>{{ item.name }}</td>
+            <td>{{ item.qty }}</td>
+            <td><button name="increase" ng-click="increase(item.id)">Increase</button></td>
+            <td><button name="decrease" ng-click="decrease(item.id)">Decrease</button></td>
+        </tr>
+
+            <tr>
+                <td></td>
+                <td><button class="btn btn-primary"  ng-click="orderToCart()">Order</button></td>
+                <td><button class="btn btn-danger"  ng-click="cancelOrder()">Cancel</button></td>
+                <td ng-if="timeToWait != null && timeToWait > 0"> You have to wait {{ timeToWait | time: "mm" }}</td>
+            </tr>
+            <tr ng-repeat="item in schedule  track by $index" ng-if="item.sandwich = 'sandwich'" >
+                <td>
+                    <li>{{ $index + 1 }} make{{ (item.prepare) | time: "mm" }}</li>
+                    <li>{{ $index + 1 }}serve{{ item.serve | time: "mm" }}</li>
+                </td>
+            </tr>
+            </table>
+
+
+<div ng-view></div>
+    </div>
+</body>
+</html>

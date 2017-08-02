@@ -1,0 +1,33 @@
+{
+  "name": "ini-js",
+  "homepage": "https://github.com/antriver/Ini-js",
+  "authors": [
+    "Iván -DrSlump- Montes <drslump@pollinimini.net>",
+    "Anthony Kuske <anthonykuske@tmd.solutions>"
+  ],
+  "description": "Parses ini files",
+  "main": "ini-js.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "ini"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "4eed556895",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "4eed5568959b96f326fa6db0f769e03ff3844ec2"
+  },
+  "_source": "git://github.com/antriver/ini-js.git",
+  "_target": "*",
+  "_originalSource": "antriver/ini-js"
+}
